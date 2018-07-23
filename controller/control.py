@@ -25,8 +25,14 @@ class StraightController:
     """
 
     def __init__(self, pkl):
-        
-        self.func = joblib.load(pkl)
+        """
+        Two methods of initializing, either with a pkl file
+        or with the _f_dist attribute
+        """
+        if isinstance(pkl, str) and pkl.endswith(".pkl"): # load pkl file
+            self.func = joblib.load(pkl)
+        else: # load a Theano object
+            self.func = pkl
 
 
     def get_action(self, observation):
@@ -46,11 +52,14 @@ class StraightController:
         action: numpy ndarray
             acceleration or deacceleration for agent to take
         """
+        # import ipdb; ipdb.set_trace()
         obs = np.asarray(observation).T
         flat_obs = obs.flatten()
         mean, log_std = [x[0] for x in self.func([flat_obs])]
         rnd = np.random.normal(size=mean.shape)
         action = rnd * np.exp(log_std) + mean
-        return action
+        return action, dict(mean=mean, log_std=log_std)
 
 
+# if __name__ == "__main__":
+#     c = StraightController()
