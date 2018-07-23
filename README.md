@@ -1,13 +1,6 @@
 Dependencies: Theano, install with: `pip install theano`
 
-This controller takes in a path to a pkl file containing
-a theano.compile.function_module.Function object, which has
-the weights of this controller embedded in it. Provided with
-this class is "function.pkl," a controller designed for an
-autonomous vehicle (AV) within the following scenario, which
-should be recreated in SmartCity as closely as possible. A zoomed-
-picture of the beginning of the scenario, "straight_scenario.png"
-is attached. 
+For this experiment's purpose, you should only need to interface with `controller/control.py`. This controller takes in a path to a pkl file containing a theano.compile.function_module.Function object, which has the weights of this controller embedded in it. Provided with this class is "function.pkl," a controller designed for an autonomous vehicle (AV) within the following scenario, which should be recreated in SmartCity as closely as possible. A zoomed-picture of the beginning of the scenario "straight_scenario.png" is attached. 
     - one straight road
     - one AV behind an IDM vehicle (10 m apart, with noise)
 
