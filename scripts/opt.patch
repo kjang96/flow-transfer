@@ -1,0 +1,20 @@
+--- opt.py	2018-07-24 16:40:08.000000000 -0700
++++ opt2.py	2018-07-24 16:40:46.000000000 -0700
+@@ -438,7 +438,7 @@
+                 new_callbacks_times)
+ 
+ 
+-class _metadict:
++class _metadict(object):
+     """
+     WRITEME
+ 
+@@ -2274,7 +2274,7 @@
+         fgraph.attach_feature(toolbox.NodeFinder())
+ 
+ 
+-class ChangeTracker:
++class ChangeTracker(object):
+     def __init__(self):
+         self.changed = False
+         self.nb_imported = 0

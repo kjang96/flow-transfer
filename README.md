@@ -12,19 +12,27 @@ Inputs in this observation array must be scaled according to the
 experiment parameters listed for the neural net weights to 
 provide accurate accelerations!
 
+IMPORTANT: Certain features Theano for Python2.7 is behind.
+- /.../theano/gof/opt.py
+    - class _metadict 
+    - class ChangeTracker
+- /.../theano/compile/function_module.py
+    - class Supervisor
+
+To apply necessary changes for Theano (2.7), run `scripts/apply_patch.py`, which will change the above listed classes to inherit from object.
 
 --- 
 Example Usage:
 
-sc = StraightController("../data/weights/weight_0.pkl")
+`sc = StraightController("../data/weights/weight_2.pkl")
 observation = [0.00207403, 0., 0.]
-sc.get_action(observation)
+sc.get_action(observation)`
 
 ---
 ## Log of Experiment Parameters
 Listed below are the experiment parameters used in this experiment: 
 
-function.pkl (v0)
+weight_0.pkl (v0)
 - target_velocity: 10 m/s
 - speed_limit: 30 m/s
 - max_acceleration: 3 m/s^2
@@ -35,7 +43,7 @@ function.pkl (v0)
    [IDM velocity / speed_limit, IDM absolute position / road_length]]
 ```
 
-weight_0.pkl (v1)
+weight_1.pkl, weight_2.pkl (v1) 
 - target_velocity: 10 m/s
 - speed_limit: 15 m/s
 - max_acceleration: 3 m/s^2

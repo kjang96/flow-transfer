@@ -1,0 +1,11 @@
+--- function_module.py	2018-07-24 14:29:18.000000000 -0700
++++ function_module2.py	2018-07-24 14:29:38.000000000 -0700
+@@ -120,7 +120,7 @@
+     return updated_vars
+ 
+ 
+-class Supervisor:
++class Supervisor(object):
+     """
+     Listener for FunctionGraph events which makes sure that no
+     operation overwrites the contents of protected Variables. The
