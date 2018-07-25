@@ -19,8 +19,9 @@ To be called from the same directory as .patch files
 
 path = os.path.split(theano.__file__)[0] # leads to b)
 
-patch_path = os.getcwd() # should be something like '/Users/kathyjang/research/delaware/temp'
+# patch_path = os.getcwd() # should be something like '/Users/kathyjang/research/delaware/temp'
 
+patch_path = os.path.dirname(os.path.abspath(__file__))
 
 # Apply opt.patch
 opt_path = os.path.join(path, "gof", "opt.py")
