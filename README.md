@@ -1,3 +1,4 @@
+# Flow x SmartCity Transfer
 Dependencies: Theano, install with: `pip install theano`
 
 For this experiment's purpose, you should only need to interface with `controller/control.py`. This controller takes in a path to a pkl file containing a theano.compile.function_module.Function object, which has the weights of this controller embedded in it. Provided with this class is "function.pkl," a controller designed for an autonomous vehicle (AV) within the following scenario, which should be recreated in SmartCity as closely as possible. A zoomed-picture of the beginning of the scenario "straight_scenario.png" is attached. 
@@ -13,10 +14,10 @@ experiment parameters listed for the neural net weights to
 provide accurate accelerations!
 
 IMPORTANT: Certain features Theano for Python2.7 is behind.
-- /.../theano/gof/opt.py
+- `/.../theano/gof/opt.py`
     - class _metadict 
     - class ChangeTracker
-- /.../theano/compile/function_module.py
+- `/.../theano/compile/function_module.py`
     - class Supervisor
 
 To apply necessary changes for Theano (2.7), run `scripts/apply_patch.py`, which will change the above listed classes to inherit from object.
