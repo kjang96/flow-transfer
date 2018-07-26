@@ -17,9 +17,11 @@ if len(sys.argv) != 3:
     print("Exactly 2 args should be supplied")
     sys.exit()
 
+path = os.path.dirname(os.path.abspath(__file__))
+
 origin = sys.argv[1]
 dest = sys.argv[2]
-dest = os.path.join("../data/weights/", dest)
+dest = os.path.join(path, "../data/weights/", dest)
 
 data = joblib.load(origin)
 policy = data['policy']

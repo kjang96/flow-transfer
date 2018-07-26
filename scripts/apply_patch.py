@@ -8,18 +8,7 @@ if sys.version_info[0] >= 3:
 	print("No patch necessary for Python 3")
 	sys.exit()
 
-
-"""
-a) /usr/local/lib/python2.7/site-packages/theano/__init__.pyc
-b) /usr/local/lib/python2.7/site-packages/theano
-
-To be called from the same directory as .patch files
-
-"""
-
 path = os.path.split(theano.__file__)[0] # leads to b)
-
-# patch_path = os.getcwd() # should be something like '/Users/kathyjang/research/delaware/temp'
 
 patch_path = os.path.dirname(os.path.abspath(__file__))
 
