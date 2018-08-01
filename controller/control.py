@@ -2,6 +2,7 @@ import pickle
 import argparse
 import joblib
 import numpy as np
+import sys
 
 
 class StraightController: 
@@ -61,5 +62,6 @@ class StraightController:
         return action, dict(mean=mean, log_std=log_std)
 
 
-# if __name__ == "__main__":
-#     c = StraightController()
+if __name__ == "__main__":
+    import ipdb; ipdb.set_trace()
+    c = StraightController(sys.argv[1])

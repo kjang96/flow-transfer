@@ -25,7 +25,7 @@ To apply necessary changes for Theano (2.7), run `scripts/apply_patch.py`, which
 --- 
 Example Usage:
 
-`sc = StraightController("../data/weights/weight_2.pkl")
+`sc = StraightController("../data/weights/weight_3.pkl")
 observation = [0.00207403, 0., 0.]
 sc.get_action(observation)`
 
@@ -44,7 +44,7 @@ weight_0.pkl (v0)
    [IDM velocity / speed_limit, IDM absolute position / road_length]]
 ```
 
-weight_1.pkl, weight_2.pkl (v1) 
+weight_1.pkl, weight_2.pkl, weight_3.pkl (v1) 
 - target_velocity: 10 m/s
 - speed_limit: 15 m/s
 - max_acceleration: 3 m/s^2
