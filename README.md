@@ -33,7 +33,7 @@ sc.get_action(observation)`
 ## Log of Experiment Parameters
 Listed below are the experiment parameters used in this experiment: 
 
-weight_0.pkl (v0)
+### weight_0.pkl (v0)
 - target_velocity: 10 m/s
 - speed_limit: 30 m/s
 - max_acceleration: 3 m/s^2
@@ -44,7 +44,7 @@ weight_0.pkl (v0)
    [IDM velocity / speed_limit, IDM absolute position / road_length]]
 ```
 
-weight_1.pkl, weight_2.pkl, weight_3.pkl (v1) 
+### weight_1.pkl, weight_2.pkl, weight_3.pkl (v1) 
 - target_velocity: 10 m/s
 - speed_limit: 15 m/s
 - max_acceleration: 3 m/s^2
@@ -54,4 +54,15 @@ weight_1.pkl, weight_2.pkl, weight_3.pkl (v1)
 ```
 [RL headway / road_length, RL velocity / speed_limit, IDM velocity / speed_limit]
 ```
+
+### weight_4.pkl (v2)
+- target_velocity: 10 m/s
+- speed_limit: 15 m/s
+- max_acceleration: 5 m/s^2
+- max_deacceleration: -5 m/s^2
+- road_length: 1500 m
+This is trained on a different reward function with speed mode aggressive. Running 50 rollouts of this policy yields: 
+- Average RL action: -0.00 m/s^2
+- Average RL headway: 9.88m
+- Average RL velocity: 8.76 m/s
 

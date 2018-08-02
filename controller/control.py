@@ -63,5 +63,5 @@ class StraightController:
 
 
 if __name__ == "__main__":
-    import ipdb; ipdb.set_trace()
-    c = StraightController(sys.argv[1])
+    # import ipdb; ipdb.set_trace()
+    sc = StraightController(sys.argv[1])
