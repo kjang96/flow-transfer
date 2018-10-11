@@ -12,6 +12,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('file', type=str,
                         help='path to the snapshot file')
+    parser.add_argument('--weight', type=str,
+                        help='path to the weight file')
     parser.add_argument('--num_rollouts', type=int, default=100,
                         help='Number of rollouts we will average over')
     parser.add_argument('--binary', type=str, default="sumo-gui",
@@ -39,9 +41,8 @@ if __name__ == "__main__":
     # Set sumo to make a video
     sumo_params = unwrapped_env.sumo_params
     sumo_params.emission_path = "./test_time_rollout/"
-    sumo_binary = args.binary
-    unwrapped_env.restart_sumo(sumo_params=sumo_params,
-                               sumo_binary=sumo_binary)
+    sumo_params.render = args.binary
+    unwrapped_env.restart_sumo(sumo_params=sumo_params)
 
     # Load data into arrays
     all_obs = np.zeros((args.num_rollouts, max_path_length, flat_obs))
@@ -49,6 +50,9 @@ if __name__ == "__main__":
     rew = []
 
     ### changes start
+    import ipdb; ipdb.set_trace()
+    if args.weight:
+        func = args.weight
     controller = control.StraightController(func)
 
     ### changes end

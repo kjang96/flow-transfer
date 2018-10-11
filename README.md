@@ -66,3 +66,20 @@ This is trained on a different reward function with speed mode aggressive. Runni
 - Average RL headway: 9.88m
 - Average RL velocity: 8.76 m/s
 
+### roundabout_46_2018_10_11_04_14_29_0002.pkl (paper)
+- Observations provided as a 1D array in the following form. You'll want to reference the Flow Specification for specifics. The expected length is 92.
+	```
+	state = np.array(np.concatenate([rl_info, rl_info_2,
+                                        merge_dists_0, merge_0_vel,
+                                        merge_dists_1, merge_1_vel,
+                                        queue_0, queue_1,
+                                        roundabout_full]))
+    ```
+    
+
+
+
+
+
+
+
