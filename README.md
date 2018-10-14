@@ -76,6 +76,21 @@ This is trained on a different reward function with speed mode aggressive. Runni
                                         roundabout_full]))
     ```
     
+### roundabout_60_2018_10_12_21_52_40_0004.pkl (paper)
+- CHANGES: Some normalizers are different. I increased the scenario length, so:
+    - merge_0_norm: 64.32
+    - merge_1_norm: 76.55000000000001
+    - queue_0_norm: 14
+    - queue_1_norm: 17
+    - scenario_length: 402.7499999999999
+- Observations provided as a 1D array in the following form. You'll want to reference the Flow Specification for specifics. The expected length is 92.
+    ```
+    state = np.array(np.concatenate([rl_info, rl_info_2,
+                                        merge_dists_0, merge_0_vel,
+                                        merge_dists_1, merge_1_vel,
+                                        queue_0, queue_1,
+                                        roundabout_full]))
+    ```
 
 
 
