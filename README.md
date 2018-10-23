@@ -143,6 +143,23 @@ This is trained on a different reward function with speed mode aggressive. Runni
     ```
 
 
+### ecc_13_2018_10_23_06_13_18_0001
+- This is a half stochastic policy, with state space noise.
+- IDM vehicles enter the Northern inflow with a probability of 50/3600 per timestep.
+- IDM vehicles enter the Western inflow with a probability 300/3600 per timestep.
+- RL vehicles enter the Northern inflow at a rate of 50 vehicles per hour.
+- RL vehicles enter the Western inflow at a rate of 50 vehicles per hour.
+- Max speed is altered to 8 m/s
+- Observations provided as a 1D array in the following form. You'll want to reference the Flow Specification for specifics. The expected length is 92.
+    ```
+    state = np.array(np.concatenate([rl_info, rl_info_2,
+                                        merge_dists_0, merge_0_vel,
+                                        merge_dists_1, merge_1_vel,
+                                        queue_0, queue_1,
+                                        roundabout_full]))
+    ```
+
+
 
 
 
