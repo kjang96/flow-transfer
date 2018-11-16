@@ -159,7 +159,27 @@ This is trained on a different reward function with speed mode aggressive. Runni
                                         roundabout_full]))
     ```
 
+### roundabout_no_noise_0.pkl 
+- originally ecc_32_2018_11_16_08_19_22_0004
+- Deterministic policy: 1 RL followed by 2 human on Northern inflow; 1 RL followed by 3 human on Western inflow
+- Changes to state space: 
+    - merge_0_norm: 89.32
+    - merge_1_norm: 101.57
+    - queue_0_norm: 19
+    - queue_1_norm: 22
+    - total_scenario_length: 503.22
 
+### roundabout_state_noise_0.pkl
+- originally ecc_33_2018_11_16_08_20_43_0006
+- Deterministic policy: 1 RL followed by 2 human on Northern inflow; 1 RL followed by 3 human on Western inflow
+
+### roundabout_action_noise_0.pkl
+- originally ecc_34_2018_11_16_08_21_55_0006
+- Deterministic policy: 1 RL followed by 2 human on Northern inflow; 1 RL followed by 3 human on Western inflow
+
+### roundabout_both_noise_0.pkl
+- originally ecc_35_2018_11_16_08_22_42_0005
+- Deterministic policy: 1 RL followed by 2 human on Northern inflow; 1 RL followed by 3 human on Western inflow
 
 
 
