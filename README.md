@@ -199,24 +199,28 @@ This is trained on a different reward function with speed mode aggressive. Runni
 - Deterministic/fixed inflows
 - Settings from era 'ecc'
 - State space change! Append len_inflow_0, len_inflow_1, to state space. This is documented in the Flow Specification
+- Single agent, use 'controller/control.py'
 
 ### varied_inflows_state_noise_0.pkl
 - originally ecc_50_2018_11_29_03_44_58_0001
 - Deterministic/fixed inflows
 - Settings from era 'ecc'
 - State space change! Append len_inflow_0, len_inflow_1, to state space. This is documented in the Flow Specification
+- Single agent, use 'controller/control.py'
 
 ### varied_inflows_action_noise_0.pkl
 - originally ecc_51_2018_11_27_07_46_14_0003
 - Deterministic/fixed inflows
 - Settings from era 'ecc'
 - State space change! Append len_inflow_0, len_inflow_1, to state space. This is documented in the Flow Specification
+- Single agent, use 'controller/control.py'
 
 ### varied_inflows_both_noise_0.pkl
 - originally ecc_52_2018_11_28_23_21_52_0001
 - Deterministic/fixed inflows
 - Settings from era 'ecc'
 - State space change! Append len_inflow_0, len_inflow_1, to state space. This is documented in the Flow Specification
+- Single agent, use 'controller/control.py'
 
 
 
