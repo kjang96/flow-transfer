@@ -58,8 +58,9 @@ class StraightController:
         flat_obs = obs.flatten()
         mean, log_std = [x[0] for x in self.func([flat_obs])]
         rnd = np.random.normal(size=mean.shape)
-        action = rnd * np.exp(log_std) + mean
-        return action, dict(mean=mean, log_std=log_std)
+        actions = rnd * np.exp(log_std) + mean
+        actions = np.clip(actions, [-1]*len(actions), [1]*len(actions))
+        return actions, dict(mean=mean, log_std=log_std)
 
 
 if __name__ == "__main__":

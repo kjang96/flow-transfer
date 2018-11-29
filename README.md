@@ -1,4 +1,6 @@
 # Flow x SmartCity Transfer
+
+## For Rllab ('controller/control.py')
 Dependencies: Theano, install with: `pip install theano`
 
 For this experiment's purpose, you should only need to interface with `controller/control.py`. This controller takes in a path to a pkl file containing a theano.compile.function_module.Function object, which has the weights of this controller embedded in it. Provided with this class is "function.pkl," a controller designed for an autonomous vehicle (AV) within the following scenario, which should be recreated in SmartCity as closely as possible. A zoomed-picture of the beginning of the scenario "straight_scenario.png" is attached. 
@@ -21,6 +23,16 @@ IMPORTANT: Certain features Theano for Python2.7 is behind.
     - class Supervisor
 
 To apply necessary changes for Theano (2.7), run `scripts/apply_patch.py`, which will change the above listed classes to inherit from object.
+
+
+## For RLlib ('controller/rllib_control.py')
+Dependencies: Ray, Flow 
+
+Ray installation information: https://ray.readthedocs.io/en/latest/installation.html
+
+Flow installation: https://flow.readthedocs.io/en/latest/flow_setup.html
+
+For interfacing with RLlib-trained policy, view `controller/rllib_control.py`. This controller takes in a path to a directory containing checkpoints of an RLlib-trained policy. 
 
 --- 
 Example Usage:
