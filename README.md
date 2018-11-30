@@ -222,6 +222,26 @@ This is trained on a different reward function with speed mode aggressive. Runni
 - State space change! Append len_inflow_0, len_inflow_1, to state space. This is documented in the Flow Specification
 - Single agent, use 'controller/control.py'
 
+### varied_inflows_no_noise_1.pkl
+- originally ecc_53_2018_11_29_23_16_57_0001.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
+### varied_inflows_state_noise_1.pkl
+- originally ecc_54_2018_11_29_23_17_54_0002.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
+### varied_inflows_action_noise_1.pkl
+- originally ecc_55_2018_11_29_23_26_30_0003.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
+### varied_inflows_both_noise_1.pkl
+- originally ecc_56_2018_11_29_23_27_38_0004.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
 
 
 
