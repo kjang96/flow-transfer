@@ -242,7 +242,29 @@ This is trained on a different reward function with speed mode aggressive. Runni
 - Settings from era 'ecc'
 - Single agent, use 'controller/control.py'
 
+## Final policies for transfer
 
+Saturate velocities at 8 m/s. 
+
+### varied_inflows_no_noise_2.pkl
+- originally ecc_83_2018_12_08_06_49_14_0001.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
+### varied_inflows_state_noise_2.pkl
+- originally ecc_84_2018_12_08_06_49_15_0002.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
+### varied_inflows_action_noise_2.pkl
+- originally ecc_85_2018_12_08_06_49_15_0002.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
+
+### varied_inflows_both_noise_2.pkl
+- originally ecc_86_2018_12_08_06_49_16_0001.pkl
+- Settings from era 'ecc'
+- Single agent, use 'controller/control.py'
 
 
 
