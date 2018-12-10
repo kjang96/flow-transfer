@@ -45,6 +45,9 @@ class RllibController:
     For our purposes, checkpoint_num will always be 100, and algo will always
     be 'PPO' 
 
+    If calling as __main__, the run command is:
+    python rllib_control.py path/to/directory [100]
+
     """
     
     def __init__(self, result_dir, checkpoint_num=100, algo='PPO'):
