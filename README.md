@@ -32,7 +32,35 @@ Ray installation information: https://ray.readthedocs.io/en/latest/installation.
 
 Flow installation: https://flow.readthedocs.io/en/latest/flow_setup.html
 
-For interfacing with RLlib-trained policy, view `controller/rllib_control.py`. This controller takes in a path to a directory containing checkpoints of an RLlib-trained policy. 
+IMPORTANT NOTE: Ray for 2.7 is incompatible with the pickle protocol. To fix this, the following change needs to be made in `ray/tune/trainable.py`. Replace the `restore` function with: 
+```
+def restore(self, checkpoint_path):
+    """Restores training state from a given model checkpoint.
+
+    These checkpoints are returned from calls to save().
+
+    Subclasses should override ``_restore()`` instead to restore state.
+    This method restores additional metadata saved with the checkpoint.
+    """
+
+    # metadata = pickle.load(open(checkpoint_path + ".tune_metadata", "rb"))
+    # self._experiment_id = metadata["experiment_id"]
+    # self._iteration = metadata["iteration"]
+    # self._timesteps_total = metadata["timesteps_total"]
+    # self._time_total = metadata["time_total"]
+    # self._episodes_total = metadata["episodes_total"]
+    saved_as_dict = False
+    if saved_as_dict:
+        with open(checkpoint_path, "rb") as loaded_state:
+            checkpoint_dict = pickle.load(loaded_state)
+        self._restore(checkpoint_dict)
+    else:
+        self._restore(checkpoint_path)
+    self._restored = True
+```
+
+
+For interfacing with RLlib-trained policy, run something like `python controller/rllib_control.py data/rllib/ma_state_noise 150`. For more detail, view `controller/rllib_control.py`. This controller takes in a path to a directory containing checkpoints of an RLlib-trained policy. 
 
 --- 
 Example Usage:
@@ -266,10 +294,24 @@ Saturate velocities at 8 m/s.
 - Settings from era 'ecc'
 - Single agent, use 'controller/control.py'
 
+### data/rllib/ma_state_noise
+- /Users/kathyjang/research/ray_results/ma_23/PPO_MultiAgentUDSSCMergeEnvReset-v0_2_num_sgd_iter=10_2018-12-11_04-16-10h79nkb0n
+- Settings from era 'ecc'
+
+### data/rllib/ma_state_noise
+- /Users/kathyjang/research/ray_results/ma_24/PPO_MultiAgentUDSSCMergeEnvReset-v0_0_num_sgd_iter=10_2018-12-11_04-16-5895leqegp
+- Settings from era 'ecc'
+- Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/ma_state_noise
+- /Users/kathyjang/research/ray_results/ma_25/PPO_MultiAgentUDSSCMergeEnvReset-v0_2_num_sgd_iter=10_2018-12-11_04-19-17jtgrdafk
+- Settings from era 'ecc'
+- Multi agent, use 'controller/rllib_control.py'
 
 
 ### for flow team to use
 python scripts/extract_theano.py data/policies/varied_inflows_both_noise_0.pkl data/weights/varied_inflows_both_noise_0.pkl
+- Multi agent, use 'controller/rllib_control.py'
 
 python scripts/downgrade_pkl.py data/weights/varied_inflows_both_noise_0.pkl data/weights/varied_inflows_both_noise_0.pkl
 

@@ -94,7 +94,7 @@ class RllibController:
 
     """
     
-    def __init__(self, result_dir, checkpoint_num=100, algo='PPO'):
+    def __init__(self, result_dir, checkpoint_num=150, algo='PPO'):
 
         checkpoint_num = str(checkpoint_num)
         # # config = get_rllib_config(result_dir)
