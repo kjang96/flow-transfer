@@ -294,19 +294,44 @@ Saturate velocities at 8 m/s.
 - Settings from era 'ecc'
 - Single agent, use 'controller/control.py'
 
-### data/rllib/ma_state_noise
+### data/rllib/round_0/ma_state_noise
 - /Users/kathyjang/research/ray_results/ma_23/PPO_MultiAgentUDSSCMergeEnvReset-v0_2_num_sgd_iter=10_2018-12-11_04-16-10h79nkb0n
 - Settings from era 'ecc'
 
-### data/rllib/ma_state_noise
+### data/rllib/round_0/ma_action_noise
 - /Users/kathyjang/research/ray_results/ma_24/PPO_MultiAgentUDSSCMergeEnvReset-v0_0_num_sgd_iter=10_2018-12-11_04-16-5895leqegp
 - Settings from era 'ecc'
 - Multi agent, use 'controller/rllib_control.py'
 
-### data/rllib/ma_state_noise
+### data/rllib/round_0/ma_both_noise
 - /Users/kathyjang/research/ray_results/ma_25/PPO_MultiAgentUDSSCMergeEnvReset-v0_2_num_sgd_iter=10_2018-12-11_04-19-17jtgrdafk
 - Settings from era 'ecc'
 - Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/round_1/ma_state_noise
+- /Users/kathyjang/research/ray_results/ma_32/PPO_MultiAgentUDSSCMergeEnvReset-v0_3_num_sgd_iter=30_2018-12-13_08-04-41cdn7btwn 
+- Settings from era 'ecc'
+- This one looks to be a little sticky
+- Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/round_1/ma_action_noise_0
+- /Users/kathyjang/research/ray_results/ma_33/PPO_MultiAgentUDSSCMergeEnvReset-v0_4_num_sgd_iter=10_2018-12-13_08-06-33tgvjat_2
+- Settings from era 'ecc'
+- Safer version
+- Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/round_1/ma_action_noise_1
+- /Users/kathyjang/research/ray_results/ma_33/PPO_MultiAgentUDSSCMergeEnvReset-v0_0_num_sgd_iter=10_2018-12-13_08-05-45s0oep872
+- Settings from era 'ecc'
+- Riskier version
+- Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/round_0/ma_both_noise
+- /Users/kathyjang/research/ray_results/ma_34/PPO_MultiAgentUDSSCMergeEnvReset-v0_1_num_sgd_iter=30_2018-12-13_08-09-2419es9vhs
+- Settings from era 'ecc'
+- Multi agent, use 'controller/rllib_control.py'
+
+
 
 
 ### for flow team to use
