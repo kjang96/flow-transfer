@@ -118,7 +118,7 @@ class RllibController:
 
         adv_action_space = Box(low=0.,
                     high=1,
-                    shape=(96,),
+                    shape=(22,),
                     dtype=np.float32)
 
 
