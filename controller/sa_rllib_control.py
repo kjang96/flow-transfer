@@ -119,10 +119,6 @@ class RllibController:
     def __init__(self, result_dir, checkpoint_num=150, algo='PPO'):
 
         checkpoint_num = str(checkpoint_num)
-        # # config = get_rllib_config(result_dir)
-        # # pkl = get_rllib_pkl(result_dir)
-
-        #create_env, env_name = make_create_env(params=flow_params, version=0)
 
         # Register as rllib env
         register_env('test', create_env)
@@ -138,42 +134,14 @@ class RllibController:
                     shape=(2,),
                     dtype=np.float32)
 
-
-        # def gen_policy_agent():
-        #     return (PPOPolicyGraph, obs_space, act_space, {})
-
-        # def gen_policy_adversary():
-        #     return (PPOPolicyGraph, obs_space, adv_action_space, {})
-
-        # <-- old
-        # Setup PG with an ensemble of `num_policies` different policy graphs
-        # policy_graphs = {'av': gen_policy_agent(), 'adversary': gen_policy_adversary()}
-
         def policy_mapping_fn(agent_id):
             return agent_id
 
-        # policy_ids = list(policy_graphs.keys())
 
         config = ppo.DEFAULT_CONFIG.copy()
         config['model'].update({'fcnet_hiddens': [100, 50, 25]})
         config["observation_filter"] = "NoFilter"
         config['simple_optimizer'] = True
-
-        # config.update({
-        #     'multiagent': {
-        #         'policy_graphs': policy_graphs,
-        #         'policy_mapping_fn': tune.function(policy_mapping_fn)
-        #     }
-        # }) 
-
-
-        # check if we have a multiagent scenario but in a
-        # backwards compatible way
-        # if config.get('multiagent', {}).get('policy_graphs', {}):
-        #     multiagent = True
-        #     config['multiagent'] = pkl['multiagent']
-        # else:
-        #     multiagent = False
 
         # Run on only one cpu for rendering purposes
         config['num_workers'] = 0
@@ -191,22 +159,9 @@ class RllibController:
 
         # create the agent that will be used to compute the actions
         self.agent = agent_cls(env='test', config=config)
-        # agent = agent_cls(config=config)
         checkpoint = result_dir + '/checkpoint_' + checkpoint_num
         checkpoint = checkpoint + '/checkpoint-' + checkpoint_num
         self.agent.restore(checkpoint)
-
-
-        # multiagent = True
-        # if multiagent:
-        #     rets = {}
-        #     # map the agent id to its policy
-        #     self.policy_map_fn = config['multiagent']['policy_mapping_fn'].func
-        #     for key in config['multiagent']['policy_graphs'].keys():
-        #         rets[key] = []
-        # else:
-        #     rets = []
-        #     env_params=env_params, sumo_params=sumo_params, scenario=scenario))
 
     def get_action(self, state, agent_id='av'):
         """
@@ -221,7 +176,7 @@ class RllibController:
         action: numpy ndarray
             acceleration or deacceleration for agent to take
         """
-        actions = self.agent.compute_action(state, policy_id=self.policy_map_fn(agent_id))
+        actions = self.agent.compute_action(state)
         actions = np.clip(actions, [-1]*len(actions), [1]*len(actions))
         return actions
     
