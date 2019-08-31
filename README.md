@@ -332,6 +332,27 @@ Saturate velocities at 8 m/s.
 - Multi agent, use 'controller/rllib_control.py'
 
 
+# FOR ICRA
+
+##icra_round_0
+
+### data/rllib/icra_round_0/no_noise
+- /Users/kathyjang/research/ray_results/icra_56/PPO_UDSSCMergeEnvReset-v0_0_2019-08-31_04-13-106oeb9ed1
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_0/state_noise
+- /Users/kathyjang/research/ray_results/icra_57/PPO_UDSSCMergeEnvReset-v0_0_2019-08-31_04-14-13aoil1nou
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_0/action_noise
+- /Users/kathyjang/research/ray_results/icra_58/PPO_UDSSCMergeEnvReset-v0_0_2019-08-31_04-15-17q897k9l8
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_0/both_noise
+- /Users/kathyjang/research/ray_results/icra_59/PPO_UDSSCMergeEnvReset-v0_1_2019-08-31_04-57-35h_9kt7j0 140
+- Single agent, use 'controller/sa_rllib_control.py'
+
+
 
 
 ### for flow team to use
