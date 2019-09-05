@@ -36,22 +36,16 @@ import numpy as np
 
 import ray
 import ray.rllib.agents.ppo as ppo
-from ray.rllib.agents.ppo.ppo_policy_graph import PPOPolicyGraph
+# from ray.rllib.agents.ppo.ppo_policy_graph import PPOPolicyGraph
 from ray import tune
 from ray.tune.registry import register_env
 from ray.tune import run_experiments
 
-from flow.controllers import ContinuousRouter
 from flow.controllers import IDMController
 from flow.controllers import RLController
-from flow.controllers import SumoLaneChangeController, ContinuousRouter
-from flow.core.params import EnvParams
-from flow.core.params import InitialConfig
-from flow.core.params import NetParams
-from flow.core.params import SumoParams
-from flow.core.params import InFlows
-from flow.core.params import SumoCarFollowingParams, SumoLaneChangeParams
-from flow.core.vehicles import Vehicles
+from flow.controllers import SimLaneChangeController
+from flow.core.params import EnvParams, InitialConfig, NetParams, SumoParams \
+    , InFlows, SumoCarFollowingParams, SumoLaneChangeParams, VehicleParams
 # from flow.scenarios.figure8.figure8_scenario import ADDITIONAL_NET_PARAMS
 
 from flow.utils.registry import make_create_env
@@ -123,14 +117,14 @@ class RllibController:
 
 
         def gen_policy_agent():
-            return (PPOPolicyGraph, obs_space, act_space, {})
+            return (None, obs_space, act_space, {})
 
         def gen_policy_adversary():
-            return (PPOPolicyGraph, obs_space, adv_action_space, {})
+            return (None, obs_space, adv_action_space, {})
 
         # <-- old
         # Setup PG with an ensemble of `num_policies` different policy graphs
-        policy_graphs = {'av': gen_policy_agent(), 'adversary': gen_policy_adversary()}
+        policy_graphs = {'av': gen_policy_agent(), 'action_adversary': gen_policy_adversary()}
 
         def policy_mapping_fn(agent_id):
             return agent_id
@@ -184,8 +178,8 @@ class RllibController:
         if multiagent:
             rets = {}
             # map the agent id to its policy
-            self.policy_map_fn = config['multiagent']['policy_mapping_fn'].func
-            for key in config['multiagent']['policies'].keys():
+            self.policy_map_fn = config['multiagent']['policy_mapping_fn']
+            for key in config['multiagent']['policy_graphs'].keys():
                 rets[key] = []
         else:
             rets = []
@@ -205,7 +199,7 @@ class RllibController:
             acceleration or deacceleration for agent to take
         """
         actions = self.agent.compute_action(state, policy_id=self.policy_map_fn(agent_id))
-        actions = np.clip(actions, [-1]*len(actions), [1]*len(actions))
+        actions = np.clip(actions, [-3]*len(actions), [1]*len(actions))
         return actions
     
 
@@ -227,7 +221,7 @@ def create_parser():
 if __name__ == '__main__':
     parser = create_parser()
     args = parser.parse_args()
-    ray.init(num_cpus=1)
+    # ray.init(num_cpus=1, object_store_memory=10000000)
     c = RllibController(args.result_dir, args.checkpoint_num, algo='PPO')
 
 

@@ -352,6 +352,35 @@ Saturate velocities at 8 m/s.
 - /Users/kathyjang/research/ray_results/icra_59/PPO_UDSSCMergeEnvReset-v0_1_2019-08-31_04-57-35h_9kt7j0 140
 - Single agent, use 'controller/sa_rllib_control.py'
 
+## icra_round_1
+
+### data/rllib/icra_round_1/no_noise
+- /Users/kathyjang/research/ray_results/icra_64/PPO_UDSSCMergeEnvReset-v0_0_2019-09-03_20-42-382g88v_tj
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_1/state_noise
+- /Users/kathyjang/research/ray_results/icra_65/PPO_UDSSCMergeEnvReset-v0_0_2019-09-03_20-44-29ha0ry539
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_1/action_noise
+- /Users/kathyjang/research/ray_results/icra_66/PPO_UDSSCMergeEnvReset-v0_1_2019-09-03_21-24-57rjm_33c8
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_1/both_noise
+- /Users/kathyjang/research/ray_results/icra_67/PPO_UDSSCMergeEnvReset-v0_0_2019-09-03_20-47-11u9npzqlr
+- Single agent, use 'controller/sa_rllib_control.py'
+
+### data/rllib/icra_round_1/ma_state_noise
+- /Users/kathyjang/research/ray_results/icra_ma_76/PPO_MultiAgentUDSSCMergeHumanAdversary-v0_0_2019-09-05_01-20-2561t__0vl
+- Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/icra_round_1/ma_action_noise
+- /Users/kathyjang/research/ray_results/icra_ma_77/PPO_MultiAgentUDSSCMergeHumanAdversary-v0_0_2019-09-05_01-22-24lsb8740z
+- Multi agent, use 'controller/rllib_control.py'
+
+### data/rllib/icra_round_1/ma_both_noise
+- /Users/kathyjang/research/ray_results/icra_ma_78/PPO_MultiAgentUDSSCMergeHumanAdversary-v0_0_2019-09-05_01-25-09rlmnhhxm
+- Multi agent, use 'controller/rllib_control.py'
 
 
 
