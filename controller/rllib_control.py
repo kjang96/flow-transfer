@@ -18,7 +18,7 @@ import os
 import sys
 
 import ray
-from ray.rllib.agents.agent import get_agent_class
+from ray.rllib.agents.registry import get_agent_class
 from ray.tune.registry import register_env
 from ray.rllib.models import ModelCatalog
 
@@ -185,7 +185,7 @@ class RllibController:
             rets = {}
             # map the agent id to its policy
             self.policy_map_fn = config['multiagent']['policy_mapping_fn'].func
-            for key in config['multiagent']['policy_graphs'].keys():
+            for key in config['multiagent']['policies'].keys():
                 rets[key] = []
         else:
             rets = []
