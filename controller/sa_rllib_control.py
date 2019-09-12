@@ -199,7 +199,7 @@ def create_parser():
 if __name__ == '__main__':
     parser = create_parser()
     args = parser.parse_args()
-    # ray.init(num_cpus=1, object_store_memory=10000000)
+    ray.init(num_cpus=1)#, object_store_memory=10000000)
     c = RllibController(args.result_dir, args.checkpoint_num, algo='PPO')
 
 

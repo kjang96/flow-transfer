@@ -34,7 +34,6 @@ pickle.dump(p, open(file_name, 'wb'), protocol=2)
 
 
 ### Now do the same thing with checkpoint.tune_metadata
-import ipdb; ipdb.set_trace()
 file_name = file_name + '.tune_metadata'
 metadata = pickle.load(open(file_name, 'rb'))
 pickle.dump(metadata, open(file_name, 'wb'), protocol=2)
